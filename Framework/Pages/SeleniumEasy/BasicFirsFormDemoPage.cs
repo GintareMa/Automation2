@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Framework.Pages.SeleniumEasy
+﻿namespace Framework.Pages.SeleniumEasy
 {
     public class BasicFirsFormDemoPage
     {
@@ -30,6 +24,30 @@ namespace Framework.Pages.SeleniumEasy
         public static string readMessage()
         {
             string locator = "//*[@id='display']";
+            return Common.getElementText(locator);
+        }
+
+        public static void enterInputA(string input)
+        {
+            string locator = "//*[@id='sum1']";
+            Common.sendKeysToElement(locator, input);
+        }
+
+        public static void enterInputB(string input)
+        {
+            string locator = "//*[@id='sum2']";
+            Common.sendKeysToElement(locator, input);
+        }
+
+        public static void clickTotalButton()
+        {
+            string locator = "//*[@id='gettotal']/button";
+            Common.clickElement(locator);
+        }
+
+        public static string readTotal()
+        {
+            string locator = "//*[@id='displayvalue']";
             return Common.getElementText(locator);
         }
     }

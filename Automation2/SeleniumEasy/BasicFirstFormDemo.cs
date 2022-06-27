@@ -1,11 +1,6 @@
 ﻿using Framework;
 using Framework.Pages.SeleniumEasy;
 using NUnit.Framework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Automation2.SeleniumEasy
 {
@@ -33,6 +28,21 @@ namespace Automation2.SeleniumEasy
             Assert.AreEqual(expecedMessage, actualMessage);
         }
 
+        [Test]
+
+        public static void twoInputFields()
+        {
+            string inputA = "5";
+            string inputB = "7";
+            string expectedTotal = "12";
+            string actualTotal;
+
+            BasicFirsFormDemoPage.enterInputA(inputA);
+            BasicFirsFormDemoPage.enterInputB(inputB);
+            BasicFirsFormDemoPage.clickTotalButton();
+            actualTotal = BasicFirsFormDemoPage.readTotal();
+            Assert.AreEqual(expectedTotal, actualTotal);
+        }
         [TearDown]
         public static void close()
         {
