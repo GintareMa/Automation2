@@ -1,11 +1,8 @@
 ﻿using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Framework.Pages
 {
@@ -26,6 +23,16 @@ namespace Framework.Pages
             getElement(locator).Click();
         }
 
+        public static void performRightClick(string locator)
+        {
+            IWebElement element = getElement(locator);
+            Actions actions = new Actions(Driver.getDriver());
+            
+            //actions.MoveToElement(element);
+            actions.ContextClick(element);
+            actions.Perform();
+        }
+
         public static string getElementText(string locator)
         {
             return getElement(locator).Text;
@@ -37,6 +44,13 @@ namespace Framework.Pages
             //IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("elementID")));
 
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(locator)));
+        }
+
+        public static void selectOptionByValue(string locator, string value)
+        {
+            IWebElement element = getElement(locator);
+            SelectElement selectElement = new SelectElement(element);
+            selectElement.SelectByValue(value);
         }
     }
 }
