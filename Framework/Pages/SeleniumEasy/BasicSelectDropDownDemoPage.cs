@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Framework.Pages.SeleniumEasy
+﻿namespace Framework.Pages.SeleniumEasy
 {
     public class BasicSelectDropDownDemoPage
     {
