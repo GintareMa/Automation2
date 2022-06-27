@@ -56,8 +56,11 @@
     <Compile Include="Driver.cs" />
     <Compile Include="Pages\Common.cs" />
     <Compile Include="Pages\DemoQA\RadioButtonPage.cs" />
+    <Compile Include="Pages\DemoQA\ButtonsPage.cs" />
     <Compile Include="Pages\DemoQA\TextBoxPage.cs" />
+    <Compile Include="Pages\SeleniumEasy\BasicCheckBoxDemoPage.cs" />
     <Compile Include="Pages\SeleniumEasy\BasicFirsFormDemoPage.cs" />
+    <Compile Include="Pages\SeleniumEasy\BasicSelectDropDownDemoPage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
