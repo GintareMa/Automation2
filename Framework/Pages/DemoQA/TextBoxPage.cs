@@ -1,5 +1,4 @@
-﻿
-namespace Framework.Pages.DemoQA
+﻿namespace Framework.Pages.DemoQA
 {
     public class TextBoxPage
     {
