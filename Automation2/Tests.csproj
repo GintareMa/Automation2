@@ -53,13 +53,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseClasses\BaseTest.cs" />
     <Compile Include="DemoQA\Buttons.cs" />
+    <Compile Include="DemoQA\DynamicProperties.cs" />
     <Compile Include="DemoQA\TextBox.cs" />
     <Compile Include="DemoQA\RadioButton.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumEasy\BasicCheckBoxDemo.cs" />
     <Compile Include="SeleniumEasy\BasicFirstFormDemo.cs" />
     <Compile Include="SeleniumEasy\BasicSelectDropDownDemo.cs" />
+    <Compile Include="SeleniumEasy\JavascriptAlerts.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

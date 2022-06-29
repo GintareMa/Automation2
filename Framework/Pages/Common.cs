@@ -13,15 +13,24 @@ namespace Framework.Pages
             return Driver.getDriver().FindElement(By.XPath(locator));        
         }
 
+        public static void alertAccept()
+        {
+            Driver.getDriver().SwitchTo().Alert().Accept();
+        }
+
         public static void sendKeysToElement(string locator, string keys)
         { 
             getElement(locator).SendKeys(keys);    
         }
 
+
+
         public static void clickElement(string locator)
         {
             getElement(locator).Click();
         }
+
+
 
         public static void performRightClick(string locator)
         {
@@ -39,7 +48,6 @@ namespace Framework.Pages
             Actions actions = new Actions(Driver.getDriver());
 
             actions.DoubleClick(element).Perform();
-            //actions.Perform();
         }
 
         public static string getElementText(string locator)
@@ -53,6 +61,20 @@ namespace Framework.Pages
             //IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("elementID")));
 
             wait.Until(ExpectedConditions.ElementIsVisible(By.XPath(locator)));
+        }
+
+        internal static void waitForElementToBeCkilkable(string locator)
+        {
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10));
+            //IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("elementID")));
+
+            wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locator)));
+        }
+
+        internal static void waitForElementAttributeToContainValue(string locator, string attributeName, string attributeValue)
+        {
+            new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10))
+               .Until(d => d.FindElement(By.XPath(locator)).GetAttribute(attributeName).Contains(attributeValue));
         }
 
         public static void selectOptionByValue(string locator, string value)

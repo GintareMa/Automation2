@@ -1,7 +1,14 @@
-﻿namespace Framework.Pages.DemoQA
+﻿using System;
+
+namespace Framework.Pages.DemoQA
 {
     public class ButtonsPage
     {
+        public static void open()
+        {
+            Driver.open("https://demoqa.com/buttons");
+        }
+
         public static void leftClick()
         {
             string locator = "//*[text()='Click Me']";

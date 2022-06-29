@@ -1,18 +1,19 @@
 ﻿using Framework;
 using Framework.Pages.DemoQA;
 using NUnit.Framework;
+using Tests.BaseClasses;
+using Tests.DemoQA;
 
 namespace Automation2.DemoQA
 {
     [Parallelizable(scope:ParallelScope.Children)]
-    public class Buttons
+    public class Buttons : BaseTest
     {
         [SetUp]
 
-        public static void setup()
+        public static void openPage()
         {
-            Driver.setDriver();
-            Driver.open("https://demoqa.com/buttons");
+            ButtonsPage.open();
         }
 
         [Test]
@@ -52,12 +53,6 @@ namespace Automation2.DemoQA
 
             Assert.AreEqual(expectedMessage, actualMessage);
 
-        }
-
-        [TearDown]
-        public static void close()
-        {
-            Driver.closeDriver();
         }
     }
 }

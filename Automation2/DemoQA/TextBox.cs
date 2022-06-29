@@ -1,16 +1,16 @@
 ﻿using Framework;
 using Framework.Pages.DemoQA;
 using NUnit.Framework;
+using Tests.BaseClasses;
+using Tests.DemoQA;
 
 namespace Automation2.DemoQA
 {
-    public class TextBox
+    public class TextBox : BaseTest
     {
         [SetUp]
-
-        public static void setup()
+        public static void openPage()
         {
-            Driver.setDriver();
             Driver.open("https://demoqa.com/text-box");
         }
 
@@ -29,12 +29,6 @@ namespace Automation2.DemoQA
 
             Assert.IsTrue(actualName.Contains(expectedName));
             Assert.IsTrue(actualEmail.Contains(expectedEmail));
-        }
-
-        [TearDown]
-        public static void close()
-        {
-            Driver.closeDriver();
         }
     }
 }
