@@ -1,7 +1,6 @@
 ﻿using Framework;
 using Framework.Pages.SeleniumEasy;
 using NUnit.Framework;
-using Tests.BaseClasses;
 
 namespace Automation2.SeleniumEasy
 {
@@ -22,9 +21,50 @@ namespace Automation2.SeleniumEasy
         {
             JavascriptAlertsPage.clickButtonToOpenAlertBox();
             JavascriptAlertsPage.clickOkInAlertBox();
-
-            // Assert
         }
+
+        [Test]
+        public static void acceptConfirmBox()
+        {
+            string expectedMessage = "You pressed OK!";
+            string actualMessage;
+
+            JavascriptAlertsPage.clickButtonToDisplayBox();
+            JavascriptAlertsPage.clickOkInAlertBox();
+            actualMessage = JavascriptAlertsPage.readMessage();
+
+            Assert.IsTrue(actualMessage.Contains(expectedMessage), $"Expectted message: '{expectedMessage}' to contain actual message: '{actualMessage}'");
+        }
+
+        [Test]
+        public static void declineConfirmBox()
+        {
+            string expectedMessage = "You pressed Cancel!";
+            string actualMessage;
+
+            JavascriptAlertsPage.clickButtonToDisplayBox();
+            JavascriptAlertsPage.clickCancelInAlertBox();
+            actualMessage = JavascriptAlertsPage.readMessage();
+
+            Assert.AreEqual(expectedMessage, actualMessage);
+
+        }
+
+        [Test]
+        public static void acceptEnteredMessageInPromtBox() 
+        {
+            string expectedMessage = "You have entered 'Enter name' !";
+            string actualMessage;
+
+            JavascriptAlertsPage.clickButtonToDisplayPromtBox();
+            JavascriptAlertsPage.clickOkInAlertBox();
+            
+            actualMessage = JavascriptAlertsPage.readEnteredMessage();
+
+            Assert.AreEqual(expectedMessage, actualMessage);
+        
+        }
+
         [TearDown]
         public static void close()
         {

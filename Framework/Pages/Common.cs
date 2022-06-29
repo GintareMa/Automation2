@@ -18,19 +18,20 @@ namespace Framework.Pages
             Driver.getDriver().SwitchTo().Alert().Accept();
         }
 
+        public static void alertCancel()
+        {
+            Driver.getDriver().SwitchTo().Alert().Dismiss();
+        }
+
         public static void sendKeysToElement(string locator, string keys)
         { 
             getElement(locator).SendKeys(keys);    
         }
 
-
-
         public static void clickElement(string locator)
         {
             getElement(locator).Click();
         }
-
-
 
         public static void performRightClick(string locator)
         {
