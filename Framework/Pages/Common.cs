@@ -33,6 +33,15 @@ namespace Framework.Pages
             actions.Perform();
         }
 
+        public static void performDoubleClick(string locator)
+        {
+            IWebElement element = getElement(locator);
+            Actions actions = new Actions(Driver.getDriver());
+
+            actions.DoubleClick(element).Perform();
+            //actions.Perform();
+        }
+
         public static string getElementText(string locator)
         {
             return getElement(locator).Text;
