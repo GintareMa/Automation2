@@ -33,7 +33,8 @@ namespace Automation2.SeleniumEasy
             JavascriptAlertsPage.clickOkInAlertBox();
             actualMessage = JavascriptAlertsPage.readMessage();
 
-            Assert.IsTrue(actualMessage.Contains(expectedMessage), $"Expectted message: '{expectedMessage}' to contain actual message: '{actualMessage}'");
+            Assert.IsTrue(actualMessage.Contains(expectedMessage), 
+                $"Expectted message: '{expectedMessage}' to contain actual message: '{actualMessage}'");
         }
 
         [Test]
@@ -53,22 +54,22 @@ namespace Automation2.SeleniumEasy
         [Test]
         public static void acceptEnteredMessageInPromtBox() 
         {
-            string expectedMessage = "You have entered 'Enter name' !";
+            string expectedMessage = "Gintare";
             string actualMessage;
 
             JavascriptAlertsPage.clickButtonToDisplayPromtBox();
+            JavascriptAlertsPage.enterNameInPromtBox(expectedMessage);
             JavascriptAlertsPage.clickOkInAlertBox();
             
             actualMessage = JavascriptAlertsPage.readEnteredMessage();
 
-            Assert.AreEqual(expectedMessage, actualMessage);
-        
+            Assert.IsTrue(actualMessage.Contains(expectedMessage)); 
         }
 
         [TearDown]
         public static void close()
         {
-            Driver.closeDriver();
+           Driver.closeDriver();
         }
     }
 }
