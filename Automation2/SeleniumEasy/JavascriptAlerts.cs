@@ -66,10 +66,24 @@ namespace Automation2.SeleniumEasy
             Assert.IsTrue(actualMessage.Contains(expectedMessage)); 
         }
 
+        [Test]
+        public static void promptBoxDismiss()
+        {
+            string expectedMessage = "";
+            string actualMessage;
+
+            JavascriptAlertsPage.clickButtonToDisplayPromtBox();
+            JavascriptAlertsPage.clickCancelInPromtBox();
+
+            actualMessage = JavascriptAlertsPage.readEnteredMessage();
+
+            Assert.AreEqual(expectedMessage, actualMessage);
+        }
+
         [TearDown]
         public static void close()
         {
-           Driver.closeDriver();
+            Driver.closeDriver();
         }
     }
 }

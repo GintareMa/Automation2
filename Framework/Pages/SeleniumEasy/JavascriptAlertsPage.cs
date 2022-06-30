@@ -48,5 +48,10 @@ namespace Framework.Pages.SeleniumEasy
         {
             Common.sendKeysToPopup(name);
         }
+
+        public static void clickCancelInPromtBox()
+        {
+            Common.alertCancel();
+        }
     }
 }
