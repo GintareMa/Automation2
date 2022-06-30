@@ -51,6 +51,11 @@ namespace Framework.Pages
             actions.DoubleClick(element).Perform();
         }
 
+        public static void sendKeysToPopup(string name)
+        {
+            Driver.getDriver().SwitchTo().Alert().SendKeys(name);
+        }
+
         public static string getElementText(string locator)
         {
             return getElement(locator).Text;

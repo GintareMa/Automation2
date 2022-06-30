@@ -1,4 +1,6 @@
-﻿namespace Framework.Pages.SeleniumEasy
+﻿using System;
+
+namespace Framework.Pages.SeleniumEasy
 {
     public class JavascriptAlertsPage
     {
@@ -40,6 +42,11 @@
         {
             string locator = "//*[@id='prompt-demo']";
             return Common.getElementText(locator);
+        }
+
+        public static void enterNameInPromtBox( string name)
+        {
+            Common.sendKeysToPopup(name);
         }
     }
 }
