@@ -35,6 +35,7 @@ namespace Automation2.SeleniumEasy
 
         public static void twoInputFields(string inputA, string inputB, string expectedTotal)
         {
+            // old values used before refactoring
            // string inputA = "5";
            // string inputB = "7";
            // string expectedTotal = "12";
