@@ -54,6 +54,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseTest.cs" />
+    <Compile Include="DemoQA\BrowserWindow.cs" />
     <Compile Include="DemoQA\Buttons.cs" />
     <Compile Include="DemoQA\DynamicProperties.cs" />
     <Compile Include="DemoQA\TextBox.cs" />

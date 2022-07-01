@@ -3,6 +3,8 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Framework.Pages
 {
@@ -13,14 +15,51 @@ namespace Framework.Pages
             return Driver.getDriver().FindElement(By.XPath(locator));        
         }
 
+        internal static List<string> getCurrentWindowHandles()
+        {
+            return Driver.getDriver().WindowHandles.ToList();
+        }
+
+        internal static string getCurrentWindowHandle()
+        {
+            return Driver.getDriver().CurrentWindowHandle;
+        }
+
+        public static List<IWebElement> getElements(string locator)
+        {
+            return Driver.getDriver().FindElements(By.XPath(locator)).ToList();
+        }
+
         public static void alertAccept()
         {
             Driver.getDriver().SwitchTo().Alert().Accept();
         }
 
+        internal static void switchToNewWindowFromParentWindowByHandle(string parentWindowHandle)
+        {
+            List<string> handles = getCurrentWindowHandles();
+            foreach (string handle in handles) 
+            {
+                if (handle != parentWindowHandle) 
+                {
+                    Common.switchToWindowByHandle(handle);
+                }
+            }
+        }
+
+        public static void switchToWindowByHandle(string handle)
+        {
+            Driver.getDriver().SwitchTo().Window(handle);
+        }
+
         public static void alertCancel()
         {
             Driver.getDriver().SwitchTo().Alert().Dismiss();
+        }
+
+        internal static void closeWindowByHandle(string handle)
+        {
+            Driver.getDriver().SwitchTo().Window(handle).Close();
         }
 
         public static void sendKeysToElement(string locator, string keys)
@@ -31,6 +70,23 @@ namespace Framework.Pages
         public static void clickElement(string locator)
         {
             getElement(locator).Click();
+        }
+
+        internal static string getElementAttributeValue(string locator, string attributeName)
+        {
+            return getElement(locator).GetAttribute(attributeName);
+        }
+
+        internal static List<bool> getSelectedStatusForElements(string locator)
+        {
+            List<IWebElement> elementsList = getElements(locator);
+
+            List<bool> sttausList = new List<bool>();
+            foreach (IWebElement element in elementsList)
+            {
+                sttausList.Add(element.Selected);
+            }
+            return sttausList;
         }
 
         public static void performRightClick(string locator)
