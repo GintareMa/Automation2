@@ -81,12 +81,12 @@ namespace Framework.Pages
         {
             List<IWebElement> elementsList = getElements(locator);
 
-            List<bool> sttausList = new List<bool>();
+            List<bool> statusList = new List<bool>();
             foreach (IWebElement element in elementsList)
             {
-                sttausList.Add(element.Selected);
+                statusList.Add(element.Selected);
             }
-            return sttausList;
+            return statusList;
         }
 
         public static void performRightClick(string locator)
