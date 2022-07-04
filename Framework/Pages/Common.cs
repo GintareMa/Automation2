@@ -107,6 +107,15 @@ namespace Framework.Pages
             actions.DoubleClick(element).Perform();
         }
 
+        public static void performHoverMouse(string locator)
+        {
+            IWebElement element = getElement(locator);
+            Actions actions = new Actions(Driver.getDriver());
+
+            actions.MoveToElement(element).Perform();
+        }
+
+
         public static void sendKeysToPopup(string name)
         {
             Driver.getDriver().SwitchTo().Alert().SendKeys(name);
@@ -127,7 +136,7 @@ namespace Framework.Pages
 
         internal static void waitForElementToBeCkilkable(string locator)
         {
-            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(10));
+            WebDriverWait wait = new WebDriverWait(Driver.getDriver(), TimeSpan.FromSeconds(20));
             //IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("elementID")));
 
             wait.Until(ExpectedConditions.ElementToBeClickable(By.XPath(locator)));

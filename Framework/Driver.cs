@@ -12,10 +12,13 @@ namespace Framework
 
         public static void setDriver()
         {
-            //ChromeOptions options = new ChromeOptions();
+            ChromeOptions options = new ChromeOptions();
             //options.AddArgument("--start-maximized");
             //driver value yra <IWebDriver>
-            driver.Value = new ChromeDriver(); // kreipiames i driver objekta virsuje, uzsetinam
+            options.AddArgument("--window-size=1600,1000");
+
+            driver.Value = new ChromeDriver(options); // kreipiames i driver objekta virsuje, uzsetinam
+            //driver.Value.Manage().Window.Maximize();
             driver.Value.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);  // laukimas
         }
 

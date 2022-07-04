@@ -59,6 +59,7 @@
     <Compile Include="DemoQA\DynamicProperties.cs" />
     <Compile Include="DemoQA\TextBox.cs" />
     <Compile Include="DemoQA\RadioButton.cs" />
+    <Compile Include="Math\Mathscientific.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SeleniumEasy\BasicCheckBoxDemo.cs" />
     <Compile Include="SeleniumEasy\BasicFirstFormDemo.cs" />

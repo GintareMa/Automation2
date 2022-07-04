@@ -22,7 +22,7 @@ namespace Tests.BaseClasses
                 Driver.takeScreenshot();
             }
             
-            Driver.closeDriver();
+             Driver.closeDriver();
         }
     }
 }
